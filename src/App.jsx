@@ -5,16 +5,23 @@ export default function App() {
   const [newItem, setNewItem] = useState(""); //intially an empty string
   const [todos, setTodos] = useState([]); //initially an empty array as it will have multile li componenets inside of the parent ul
 
-
   function handleSubmit(e) {
     e.preventDefault();
 
-    setTodos((existingTodos) => {
-        return [
-          ...existingTodos, {id: crypto.randomUUID()}
-        ]
-    })
+    setTodos((currentTodos) => {
+      return [
+        //currentTodos === todos
+        ...currentTodos,
+        { id: crypto.randomUUID(), title: newItem, completed: false },
+      ];
+    });
+    setNewItem("");
 
+    // setTodos([
+    //   ...todos,
+    //   { id: crypto.randomUUID(), title: newItem, completed: false },
+    // ]);
+    //This would work but calling it twice won't preserve the state of the first call, so that could be handled via passing a function along with a parameter
   }
 
   return (
@@ -36,18 +43,16 @@ export default function App() {
       </form>
       <h1 className="display-todo-list">Todo List</h1>
       <ul className="todo-list">
-        <li>
-          <label>
-            <input type="checkbox" /> Item1
-          </label>
-          <button className="delete-button">Delete</button>
-        </li>
-        <li>
-          <label>
-            <input type="checkbox" /> Item2
-          </label>
-          <button className="delete-button">Delete</button>
-        </li>
+        {todos.map((todo) => {
+          return (
+            <li key={todo.id}>
+              <label>
+                <input type="checkbox" checked={todo.completed} /> {todo.title}
+              </label>
+              <button className="delete-button">Delete</button>
+            </li>
+          );
+        })}
       </ul>
     </>
   );

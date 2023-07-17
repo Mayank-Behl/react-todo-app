@@ -2,7 +2,8 @@ import { useState } from "react";
 
 export function NewTodoForm({ onSubmit }) {
   const [newItem, setNewItem] = useState(""); //intially an empty string
-
+  // boolean state to know if we are editing
+  const [isEditing, setIsEditing] = useState(false);
   function handleSubmit(e) {
     e.preventDefault();
     if (newItem === "") return;

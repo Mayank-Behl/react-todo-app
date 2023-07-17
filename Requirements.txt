@@ -1,3 +1,6 @@
 1. Create a static version - Done ✔ 
 2. Take input from the input field and populate into the list - Ongoing
     -> Using the state to take the input from the input box and change the state of the list by adding the element to the bottom of the list - Ongoing
+
+Resources:
+https://dev.to/joelynn/how-to-build-a-react-crud-todo-app-edit-todo-46g6

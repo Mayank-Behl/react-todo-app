@@ -54,7 +54,7 @@ export default function App() {
   //function to get the value of the edit input and set the new state
   function handleEditInputChange(e) {
     // set the new state value to what's currently in the edit input box
-    setCurrentTodo({ ...currentTodo, text: e.target.value });
+    setCurrentTodo({ ...currentTodo, title: e.target.value });
     console.log(currentTodo);
   }
 
@@ -66,34 +66,21 @@ export default function App() {
 
   function handleEditClick(id) {
     setIsEditing(true);
-    setCurrentTodo({ ...todos });
+    // setCurrentTodo({ ...todos });
+    setCurrentTodo(todos.find((todo) => todo.id === id));
   }
+  // need to update the title instead of text
   function handleUpdateTodo(id, updatedTodo) {
     setTodos((currentTodos) => {
       return currentTodos.map((todo) => {
         if (todo.id === id) {
-          return { updatedTodo };
+          return { ...updatedTodo };
         }
         return todo;
       });
     });
     setIsEditing(false);
   }
-  // const updatedItem = todos.map((todo) => {
-  //   return todo.id === id ? updatedTodo : todo;
-  // });
-  // setIsEditing(false);
-  // setTodos(currentTodo);
-  // function toggleTodo(id, completed) {
-  //   setTodos((currentTodos) => {
-  //     return currentTodos.map((todo) => {
-  //       if (todo.id === id) {
-  //         return { ...todo, completed };
-  //       }
-  //       return todo;
-  //     });
-  //   });
-  // }
 
   // setTodos([
   //   ...todos,

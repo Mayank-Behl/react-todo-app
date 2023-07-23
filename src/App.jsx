@@ -101,7 +101,7 @@ export default function App() {
         <NewTodoForm onSubmit={addTodo} />
       )}
 
-      <h1 className="display-todo-list">Todo List</h1>
+      <h1 className="display-todo-list font-bold textl mt-2 mb-1">Todo List</h1>
       <TodoList
         todos={todos}
         toggleTodo={toggleTodo}

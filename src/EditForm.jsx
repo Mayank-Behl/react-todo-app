@@ -22,6 +22,9 @@ export default function Editform({
           name="update-item"
           placeholder="Update Todo"
         />
+        {currentTodo.title.trim() === "" && (
+          <p className="text-red-500">Input cannot be blank</p>
+        )}
         <button
           type="submit"
           className="italic m-1 pt-1 pb-1 pl-2 pr-2 border-1 border-lime-400 bg-lime-300 rounded-md hover:bg-lime-400"

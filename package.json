@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "/src/main.jsx",
+  "homepage": "https://Mayank-Behl.github.io/react-todo-app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
